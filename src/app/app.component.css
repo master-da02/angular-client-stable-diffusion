@@ -1,0 +1,11 @@
+@import 'primeflex/primeflex.css';
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.bg-header {
+    background: rgb(212,98,19);
+    /* background: linear-gradient(0deg, rgba(254,175,109,1) 0%, rgba(212,98,19,1) 52%, rgba(212,98,19,1) 100%); */
+}
