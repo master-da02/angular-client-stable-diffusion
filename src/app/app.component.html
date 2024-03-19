@@ -1,15 +1,22 @@
-<div class="bg-header flex flex-column gap-3 align-items-center justify-content-center py-5">
-  
-  <div class="h-full p-3 flex gap-8 bg-orange-700" style="width: fit-content;">
-    <div *ngFor="let choiceList of query_choice; let i=index" id="parent{{i}}" class="col flex flex-column gap-3 align-items-center justify-content-center">
-      <div id="selectorDiv{{i}}" *ngFor="let choice of choiceList; let j=index" class="w-min text-center flex-1">
-        <p-radioButton name={{i}} value={{choice}} [(ngModel)]="query_builder[i]" inputId=position{{i}}{{j}} class="hidden" (onClick)="build_query($event)"></p-radioButton>
-        <label for=position{{i}}{{j}} class="ml-2"><p-toggleButton onLabel={{choice}} offLabel={{choice}} severity="danger"></p-toggleButton></label>
-        <!-- <label >{{choice}}</label> -->
-      </div>
+<div class="bg-header flex flex-column gap-3 align-items-center py-5" style="height: 300px;">
+  <div class="flex">
+    <div *ngFor="let choice_list of query_choice; let i=index">
+      <p-multiSelect [options]="choice_list" [(ngModel)]="query_chosen[i]" placeholder="Select Cities" (onChange)="query = build_query()">
+        <ng-template let-items pTemplate="selectedItems">
+          <div class="p-button p-2 w-full text-center p-button-outlined" style="color: #ADEFD1FF;">
+            <div *ngIf="items">{{query_chosen[i]}}</div>
+            <div *ngIf="!items || items.length === 0">...</div>
+          </div>
+        </ng-template>
+      <ng-template let-choice pTemplate="item">
+        <div class="p-button p-element p-component px-2 p-button-outlined" style="color: #ADEFD1FF;">{{choice}}</div>
+      </ng-template>
+      </p-multiSelect>
     </div>
   </div>
 
+</div>
+<div class="flex flex-column gap-3 align-items-center mt-3">
   <input type="text" pInputText style="width: 50%;" [(ngModel)]="query" />
   <p-button label="Submit" (onClick)="generateImage()"></p-button>
   <label>{{warning}}</label>

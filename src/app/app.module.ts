@@ -14,6 +14,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { DropdownModule } from 'primeng/dropdown';
+import { SpeedDialModule } from 'primeng/speeddial';
+import { MultiSelectModule } from 'primeng/multiselect';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { DropdownModule } from 'primeng/dropdown';
     InputTextModule,
     RadioButtonModule,
     ProgressSpinnerModule,
-    DropdownModule
+    DropdownModule,
+    SpeedDialModule,
+    MultiSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

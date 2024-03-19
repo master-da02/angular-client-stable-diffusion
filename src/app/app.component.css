@@ -6,6 +6,49 @@
 }
 
 .bg-header {
-    background: rgb(212,98,19);
+    background: #00203FFF;
     /* background: linear-gradient(0deg, rgba(254,175,109,1) 0%, rgba(212,98,19,1) 52%, rgba(212,98,19,1) 100%); */
+}
+
+:host ::ng-deep .p-multiselect {
+    background-color: transparent;
+    border: 0px;
+    width: 160px;
+}
+
+:host ::ng-deep .p-multiselect-header {
+    display: none;
+}
+
+:host ::ng-deep .p-multiselect-panel {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+:host ::ng-deep .p-focus {
+    background-color: transparent;
+}
+
+:host ::ng-deep .p-multiselect-trigger {
+    display: none;
+}
+
+:host ::ng-deep .p-multiselect-items {
+    background-color: transparent;
+}
+
+:host ::ng-deep .p-multiselect-item {
+    padding-left: 0;
+}
+
+:host ::ng-deep .p-multiselect-item:hover {
+    background-color: transparent;
+}
+
+:host ::ng-deep .p-multiselect-item .p-checkbox {
+    display: none;
+}
+
+:host ::ng-deep .p-multiselect-panel .p-multiselect-items .p-multiselect-item.p-highlight {
+    background-color: transparent;
 }
