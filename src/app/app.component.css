@@ -52,3 +52,15 @@
 :host ::ng-deep .p-multiselect-panel .p-multiselect-items .p-multiselect-item.p-highlight {
     background-color: transparent;
 }
+
+:host ::ng-deep .p-togglebutton.p-button {
+    background-color: transparent;
+    border: 0px;
+    color: #ffffff;
+}
+
+:host ::ng-deep .p-togglebutton.p-button.p-highlight {
+    background: #FFC107;
+    border-color: #FFC107;
+    color: #212529;
+}

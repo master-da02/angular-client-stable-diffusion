@@ -1,17 +1,16 @@
-<div class="bg-header flex flex-column gap-3 align-items-center py-5" style="height: 300px;">
-  <div class="flex">
-    <div *ngFor="let choice_list of query_choice; let i=index">
-      <p-multiSelect [options]="choice_list" [(ngModel)]="query_chosen[i]" placeholder="Select Cities" (onChange)="query = build_query()">
-        <ng-template let-items pTemplate="selectedItems">
-          <div class="p-button p-2 w-full text-center p-button-outlined" style="color: #ADEFD1FF;">
-            <div *ngIf="items">{{query_chosen[i]}}</div>
-            <div *ngIf="!items || items.length === 0">...</div>
-          </div>
-        </ng-template>
-      <ng-template let-choice pTemplate="item">
-        <div class="p-button p-element p-component px-2 p-button-outlined" style="color: #ADEFD1FF;">{{choice}}</div>
-      </ng-template>
-      </p-multiSelect>
+<div class="bg-header flex flex-column gap-3 align-items-center py-5">
+  <div class="flex gap-5">
+    <div *ngFor="let choice_list of query_choice; let i=index" class="flex flex-column gap-2 align-items-center">
+      <div *ngFor="let choice of choice_list; let j=index">
+        <!-- {{choice}} -->
+        <p-toggleButton 
+          [(ngModel)]="query_choice_selected[i][j]" 
+          onLabel={{choice}} offLabel={{choice}} 
+          (onChange)="query=build_query()" 
+          [style]="{ width: '130px' }">
+          severity="help"
+        </p-toggleButton>
+      </div>
     </div>
   </div>
 
