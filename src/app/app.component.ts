@@ -28,6 +28,7 @@ export class AppComponent {
     ['Fire', 'water', 'earth', 'magic'],
     ['Dragon', 'Dinosaur ', 'shark', 'monster', 'human', 'Country side', 'Green field'],
     ['Banner', 'poster', 'background', 'game Character'],
+    ['2D Art', 'Samaritan 3D', 'Cartoon-ish'],
   ];
   query_choice_selected: boolean[][] = this.query_choice.map((x) => x.map((_, idx) => idx ? false : true));
   query: string = this.build_query();
@@ -42,17 +43,20 @@ export class AppComponent {
   build_query() {    
     const query =
       'Generate a ' +
-      this.query_choice[0].filter((_, i) => this.query_choice_selected[0][i] == true).join('/') + //['3D', '2D', 'cartoony'],
+      this.query_choice[0].filter((_, i) => this.query_choice_selected[0][i] == true).join('/') +   // ['3D', '2D', 'cartoony'],
       ' ' +
-      this.query_choice[1].filter((_, i) => this.query_choice_selected[1][i] == true).join('/') + //['Isometric', 'sideways', 'front ', 'back', 'portrait'],
+      this.query_choice[1].filter((_, i) => this.query_choice_selected[1][i] == true).join('/') +   // ['Isometric', 'sideways', 'front ', 'back', 'portrait'],
       ' image of a ' +
-      this.query_choice[2].filter((_, i) => this.query_choice_selected[2][i] == true).join('/') + //['Baby', 'adult', 'young'],
+      this.query_choice[2].filter((_, i) => this.query_choice_selected[2][i] == true).join('/') +   // ['Baby', 'adult', 'young'],
       ' ' +
-      this.query_choice[3].filter((_, i) => this.query_choice_selected[3][i] == true).join('/') + //['Fire', 'water', 'earth', 'magic'],
+      this.query_choice[3].filter((_, i) => this.query_choice_selected[3][i] == true).join('/') +   // ['Fire', 'water', 'earth', 'magic'],
       ' ' +
-      this.query_choice[4].filter((_, i) => this.query_choice_selected[4][i] == true).join('/') + //['Dragon', 'Dinosaur ', 'shark', 'monster', 'human', 'Country side', 'Green field'],
+      this.query_choice[4].filter((_, i) => this.query_choice_selected[4][i] == true).join('/') +   // ['Dragon', 'Dinosaur ', 'shark', 'monster', 'human', 'Country side', 'Green field'],
       ' for a ' +
-      this.query_choice[5].filter((_, i) => this.query_choice_selected[5][i] == true).join('/') //['Banner', 'poster', 'background', 'game Character'],;
+      this.query_choice[5].filter((_, i) => this.query_choice_selected[5][i] == true).join('/')     // ['Banner', 'poster', 'background', 'game Character'],;
+      ' using a ' + 
+      this.query_choice[6].filter((_, i) => this.query_choice_selected[6][i] == true).join('/');    // ['2D Art', 'Samaritan 3D', 'Cartoon-ish']
+      ' style'
     return query;
   }
 
