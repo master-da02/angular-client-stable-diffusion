@@ -16,6 +16,8 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { DropdownModule } from 'primeng/dropdown';
 import { SpeedDialModule } from 'primeng/speeddial';
 import { MultiSelectModule } from 'primeng/multiselect';
+import { TableModule } from 'primeng/table';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { MultiSelectModule } from 'primeng/multiselect';
     DropdownModule,
     SpeedDialModule,
     MultiSelectModule,
+    TableModule,
+    InputTextareaModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

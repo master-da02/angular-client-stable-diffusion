@@ -21,15 +21,22 @@ export class AppComponent {
     '5MqpLpSJY3vBIPyWYQKZTzSlG9TF7JeZZeclqQT8jKYt7lHjkKQLr7HwCvox' as const;
   imageGenerateURL = `${this.baseURL}/stableDiffussion/textToImage`;
 
+
+  query_choice_header = [
+    'view', 'view', 'character', 'character', 'character', 'background', 'output type'
+  ]
   query_choice = [
     ['3D', '2D', 'cartoony'],
     ['Isometric', 'sideways', 'front ', 'back', 'portrait'],
     ['Baby', 'adult', 'young'],
     ['Fire', 'water', 'earth', 'magic'],
-    ['Dragon', 'Dinosaur ', 'shark', 'monster', 'human', 'Country side', 'Green field'],
+    ['Dragon', 'Dinosaur ', 'shark', 'monster', 'human'],
+    ['Country side', 'Green field'],
     ['Banner', 'poster', 'background', 'game Character'],
-    ['2D Art', 'Samaritan 3D', 'Cartoon-ish'],
   ];
+     
+  model_choice: string[] = ['2D Art', 'Samaritan 3D', 'Cartoon-ish']
+  model_choice_selected: string = this.model_choice[0];
   query_choice_selected: boolean[][] = this.query_choice.map((x) => x.map((_, idx) => idx ? false : true));
   query: string = this.build_query();
 
@@ -41,6 +48,7 @@ export class AppComponent {
   selectedHistory: any = null;
 
   build_query() {    
+    
     const query =
       'Generate a ' +
       this.query_choice[0].filter((_, i) => this.query_choice_selected[0][i] == true).join('/') +   // ['3D', '2D', 'cartoony'],
@@ -51,12 +59,14 @@ export class AppComponent {
       ' ' +
       this.query_choice[3].filter((_, i) => this.query_choice_selected[3][i] == true).join('/') +   // ['Fire', 'water', 'earth', 'magic'],
       ' ' +
-      this.query_choice[4].filter((_, i) => this.query_choice_selected[4][i] == true).join('/') +   // ['Dragon', 'Dinosaur ', 'shark', 'monster', 'human', 'Country side', 'Green field'],
+      this.query_choice[4].filter((_, i) => this.query_choice_selected[4][i] == true).join('/') +   // ['Dragon', 'Dinosaur ', 'shark', 'monster', 'human'],
+      ' in a ' +
+      this.query_choice[5].filter((_, i) => this.query_choice_selected[5][i] == true).join('/') +   // ['Country side', 'Green field'],
       ' for a ' +
-      this.query_choice[5].filter((_, i) => this.query_choice_selected[5][i] == true).join('/')     // ['Banner', 'poster', 'background', 'game Character'],;
-      ' using a ' + 
-      this.query_choice[6].filter((_, i) => this.query_choice_selected[6][i] == true).join('/');    // ['2D Art', 'Samaritan 3D', 'Cartoon-ish']
-      ' style'
+      this.query_choice[6].filter((_, i) => this.query_choice_selected[6][i] == true).join('/') +    // ['Banner', 'poster', 'background', 'game Character'],;
+      ' with a ' + 
+      this.model_choice_selected +
+      ' style';
     return query;
   }
 

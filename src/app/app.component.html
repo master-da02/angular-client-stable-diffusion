@@ -1,6 +1,10 @@
 <div class="bg-header flex flex-column gap-3 align-items-center py-5">
+  
   <div class="flex flex-column md:flex-row gap-0 md:gap-6 mt-6">
-    <div *ngFor="let choice_list of query_choice; let i=index" class="flex flex-column gap-2 align-items-center border-bottom-2 md:border-bottom-none pt-2 md:pt-0 border-primary">
+    <div *ngFor="let choice_list of query_choice; let i=index" class="flex flex-column gap-2 align-items-center">
+
+      <div class="p-component border-bottom-2 border-primary text-center pb-2 pt-4 md:pt-0" style="color: #FFC107; width: 130px;">{{query_choice_header[i]}}</div>
+
       <div *ngFor="let choice of choice_list; let j=index">
         <!-- {{choice}} -->
         <p-toggleButton 
@@ -16,7 +20,13 @@
 
 </div>
 <div class="flex flex-column gap-3 align-items-center mt-3">
-  <input type="text" pInputText style="width: 50%;" [(ngModel)]="query" />
+  <div class="flex gap-3">
+    <div *ngFor="let model of model_choice" class="field-checkbox" (click)="query=build_query()" >
+        <p-radioButton [inputId]="model" name="model" [value]="model" [(ngModel)]="model_choice_selected" ></p-radioButton>
+        <label [for]="model" class="ml-2" >{{ model }}</label>
+    </div>
+  </div>
+  <textarea pInputTextarea class="w-10 md:w-6" [(ngModel)]="query" [autoResize]="true"></textarea>
   <p-button label="Submit" (onClick)="generateImage()"></p-button>
   <label>{{warning}}</label>
 </div>
